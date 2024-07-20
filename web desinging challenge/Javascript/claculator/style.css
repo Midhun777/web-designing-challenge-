@@ -1,0 +1,31 @@
+.calc {
+    width: 400px;
+    height: 600px;
+    border: 1px solid black;
+    border-radius: 4px;
+    background: #cbcaca;
+}
+
+.output{
+    margin-top: 30px;
+    margin-left: 45px;
+}
+
+.screen {
+    height: 80px;
+    width: 300px;
+    border: 1px solid black;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.btn{
+    height: 80PX;
+    width:80px;
+    margin: 6px;
+    border-radius: 4px;
+}
+
+.clr{
+    margin-top: 30px;
+}
