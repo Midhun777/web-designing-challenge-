@@ -1,0 +1,92 @@
+let inputText = document.getElementById("input-data");
+let btn = document.getElementById("btn");
+let btnAll = document.getElementById("btn-dis");
+let listParent = document.getElementById("list-parent");
+let arrayItems = document.getElementById('o-list');
+let itemsArray = [];
+
+function addItem() {
+    if (inputText.value.length > 0) {
+
+        //Add Item
+        let inputValue = inputText.value;
+        itemsArray.push(inputText.value);
+        console.log(itemsArray);
+        let li = document.createElement("li");
+
+        let spanElem = document.createElement("span");
+        li.appendChild(spanElem);
+        spanElem.innerText = inputValue;
+
+        inputText.value = "";
+        listParent.appendChild(li);
+        inputText.focus();
+
+        //Delete Button
+        let deleteIcon = document.createElement('i');
+        deleteIcon.classList.add("fa-trash", "fa-solid");
+        li.appendChild(deleteIcon);
+
+        //Edit Icon
+        let editIcon = document.createElement('i');
+        editIcon.classList.add("fa-pen-to-square", "fa-solid");
+        li.appendChild(editIcon);
+        saveData();
+
+
+    } else {
+        alert("Enter any Data!!!")
+    }
+}
+
+function deleteItem(event) {
+    // console.log(event.target.classList[0]);
+    if (event.target.classList[0] === "fa-trash") {
+        let item = event.target.parentElement;
+        item.remove();
+        console.log(itemsArray);
+        itemsArray.pop();
+        console.log(itemsArray);
+
+        saveData();
+    }
+}
+
+function editItem(event) {
+    if (event.target.classList[0] === "fa-pen-to-square") {
+        let editedValue = prompt("Enter Your New Value.");
+        // let item = event.target.parentElement;
+        let spanElem = document.querySelector('span');
+        spanElem.innerText = editedValue;
+        saveData();
+    }
+}
+
+// function displayAll() {
+//     for (let itemsAll of itemsArray) {
+//         let li = document.createElement("li");
+//         li.innerText = itemsAll;
+//         arrayItems.appendChild(li);
+//     }
+// }
+
+//button onclick events
+document.addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        addItem();
+    }
+});
+btn.addEventListener('click', addItem);
+listParent.addEventListener('click', deleteItem);
+listParent.addEventListener('click', editItem);
+
+//save data to local storage 
+function saveData() {
+    localStorage.setItem("data", listParent.innerHTML);
+}
+
+//retrive data from local storage 
+function showTask() {
+    listParent.innerHTML = localStorage.getItem("data");
+}
+showTask();
