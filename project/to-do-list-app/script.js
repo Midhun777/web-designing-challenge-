@@ -61,14 +61,14 @@ function editItem(event) {
 }
 
 function setLocal() {
-    localStorage.setItem("inputData", inputValue);
+    localStorage.setItem("inputData", itemsArray);
 }
 
 function getLocal() {
-    let localData = localStorage.getItem("inputData");
-    inputValue = localStorage.getItem("inputData");
-    buildUi();
-
+    if (localStorage.getItem("inputData")) {
+        inputValue = localStorage.getItem("inputData");
+        buildUi();
+    }
 }
 
 document.addEventListener('keydown', function (event) {
@@ -80,14 +80,4 @@ btn.addEventListener('click', addItem);
 listParent.addEventListener('click', deleteItem);
 listParent.addEventListener('click', editItem);
 
-// //save data to local storage
-// function saveData() {
-//     localStorage.setItem("data", listParent.innerHTML);
-// }
-
-// //retrive data from local storage
-// function showTask() {
-//     listParent.innerHTML = localStorage.getItem("data");
-// }
-// showTask();
 getLocal();
