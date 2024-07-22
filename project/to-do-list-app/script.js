@@ -6,13 +6,7 @@ let arrayItems = document.getElementById('o-list');
 let inputValue;
 let itemsArray = [];
 
-function setLocal() {
-    localStorage.setItem("inputData", inputValue);
-}
 
-function getLocal() {
-    let localData = localStorage.getItem("inputData");
-}
 
 function addItem() {
     if (inputText.value.length > 0) {
@@ -41,37 +35,37 @@ function addItem() {
         editIcon.classList.add("fa-pen-to-square", "fa-solid");
         li.appendChild(editIcon);
 
-
-
-
+        setLocal();
     } else {
         alert("Enter any Data!!!")
     }
 }
 
 function deleteItem(event) {
-    // console.log(event.target.classList[0]);
     if (event.target.classList[0] === "fa-trash") {
         let item = event.target.parentElement;
         item.remove();
         console.log(itemsArray);
         itemsArray.pop();
         console.log(itemsArray);
-
-        // saveData();
     }
 }
 
 function editItem(event) {
     if (event.target.classList[0] === "fa-pen-to-square") {
         let editedValue = prompt("Enter Your New Value.");
-        // let item = event.target.parentElement;
         let spanElem = document.querySelector('span');
         spanElem.innerText = editedValue;
-        // saveData();
     }
 }
 
+function setLocal() {
+    localStorage.setItem("inputData", inputValue);
+}
+
+function getLocal() {
+    let localData = localStorage.getItem("inputData");
+}
 
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
@@ -92,5 +86,3 @@ listParent.addEventListener('click', editItem);
 //     listParent.innerHTML = localStorage.getItem("data");
 // }
 // showTask();
-
-//Local Storage
