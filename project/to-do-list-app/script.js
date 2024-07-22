@@ -32,11 +32,10 @@ function addItem() {
 
         //Add Item
         inputValue = inputText.value;
-        itemsArray.push(inputText.zzvalue);
+        itemsArray.push(inputText.value);
         console.log(itemsArray);
 
 
-        setLocal();
     } else {
         alert("Enter any Data!!!")
     }
