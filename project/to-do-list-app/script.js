@@ -3,13 +3,22 @@ let btn = document.getElementById("btn");
 let btnAll = document.getElementById("btn-dis");
 let listParent = document.getElementById("list-parent");
 let arrayItems = document.getElementById('o-list');
+let inputValue;
 let itemsArray = [];
+
+function setLocal() {
+    localStorage.setItem("inputData", inputValue);
+}
+
+function getLocal() {
+    let localData = localStorage.getItem("inputData");
+}
 
 function addItem() {
     if (inputText.value.length > 0) {
 
         //Add Item
-        let inputValue = inputText.value;
+        inputValue = inputText.value;
         itemsArray.push(inputText.zzvalue);
         console.log(itemsArray);
         let li = document.createElement("li");
@@ -31,7 +40,8 @@ function addItem() {
         let editIcon = document.createElement('i');
         editIcon.classList.add("fa-pen-to-square", "fa-solid");
         li.appendChild(editIcon);
-        saveData();
+
+
 
 
     } else {
@@ -65,20 +75,22 @@ function editItem(event) {
 
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        // addItem();
+        addItem();
     }
 });
 btn.addEventListener('click', addItem);
 listParent.addEventListener('click', deleteItem);
 listParent.addEventListener('click', editItem);
 
-// //save data to local storage 
+// //save data to local storage
 // function saveData() {
 //     localStorage.setItem("data", listParent.innerHTML);
 // }
 
-// //retrive data from local storage 
+// //retrive data from local storage
 // function showTask() {
 //     listParent.innerHTML = localStorage.getItem("data");
 // }
 // showTask();
+
+//Local Storage
