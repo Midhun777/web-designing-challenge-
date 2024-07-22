@@ -6,7 +6,7 @@ let arrayItems = document.getElementById('o-list');
 let inputValue;
 let itemsArray = [];
 
-function buildUi{
+function buildUi() {
     let li = document.createElement("li");
     let spanElem = document.createElement("span");
     li.appendChild(spanElem);
@@ -34,7 +34,8 @@ function addItem() {
         inputValue = inputText.value;
         itemsArray.push(inputText.value);
         console.log(itemsArray);
-
+        setLocal();
+        buildUi();
 
     } else {
         alert("Enter any Data!!!")
