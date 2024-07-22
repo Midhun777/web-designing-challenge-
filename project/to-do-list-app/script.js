@@ -48,7 +48,7 @@ function deleteItem(event) {
         itemsArray.pop();
         console.log(itemsArray);
 
-        saveData();
+        // saveData();
     }
 }
 
@@ -58,35 +58,27 @@ function editItem(event) {
         // let item = event.target.parentElement;
         let spanElem = document.querySelector('span');
         spanElem.innerText = editedValue;
-        saveData();
+        // saveData();
     }
 }
 
-// function displayAll() {
-//     for (let itemsAll of itemsArray) {
-//         let li = document.createElement("li");
-//         li.innerText = itemsAll;
-//         arrayItems.appendChild(li);
-//     }
-// }
 
-//button onclick events
 document.addEventListener('keydown', function (event) {
     if (event.key === 'Enter') {
-        addItem();
+        // addItem();
     }
 });
 btn.addEventListener('click', addItem);
 listParent.addEventListener('click', deleteItem);
 listParent.addEventListener('click', editItem);
 
-//save data to local storage 
-function saveData() {
-    localStorage.setItem("data", listParent.innerHTML);
-}
+// //save data to local storage 
+// function saveData() {
+//     localStorage.setItem("data", listParent.innerHTML);
+// }
 
-//retrive data from local storage 
-function showTask() {
-    listParent.innerHTML = localStorage.getItem("data");
-}
-showTask();
+// //retrive data from local storage 
+// function showTask() {
+//     listParent.innerHTML = localStorage.getItem("data");
+// }
+// showTask();
