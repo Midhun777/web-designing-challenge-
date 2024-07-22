@@ -6,6 +6,27 @@ let arrayItems = document.getElementById('o-list');
 let inputValue;
 let itemsArray = [];
 
+function buildUi{
+    let li = document.createElement("li");
+    let spanElem = document.createElement("span");
+    li.appendChild(spanElem);
+    spanElem.innerText = inputValue;
+
+    inputText.value = "";
+    listParent.appendChild(li);
+    inputText.focus();
+
+    //Delete Button
+    let deleteIcon = document.createElement('i');
+    deleteIcon.classList.add("fa-trash", "fa-solid");
+    li.appendChild(deleteIcon);
+
+    //Edit Icon
+    let editIcon = document.createElement('i');
+    editIcon.classList.add("fa-pen-to-square", "fa-solid");
+    li.appendChild(editIcon);
+}
+
 function addItem() {
     if (inputText.value.length > 0) {
 
@@ -13,25 +34,7 @@ function addItem() {
         inputValue = inputText.value;
         itemsArray.push(inputText.zzvalue);
         console.log(itemsArray);
-        let li = document.createElement("li");
 
-        let spanElem = document.createElement("span");
-        li.appendChild(spanElem);
-        spanElem.innerText = inputValue;
-
-        inputText.value = "";
-        listParent.appendChild(li);
-        inputText.focus();
-
-        //Delete Button
-        let deleteIcon = document.createElement('i');
-        deleteIcon.classList.add("fa-trash", "fa-solid");
-        li.appendChild(deleteIcon);
-
-        //Edit Icon
-        let editIcon = document.createElement('i');
-        editIcon.classList.add("fa-pen-to-square", "fa-solid");
-        li.appendChild(editIcon);
 
         setLocal();
     } else {
