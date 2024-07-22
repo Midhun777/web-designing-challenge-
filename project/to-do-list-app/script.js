@@ -6,8 +6,6 @@ let arrayItems = document.getElementById('o-list');
 let inputValue;
 let itemsArray = [];
 
-
-
 function addItem() {
     if (inputText.value.length > 0) {
 
