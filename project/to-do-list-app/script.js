@@ -66,6 +66,9 @@ function setLocal() {
 
 function getLocal() {
     let localData = localStorage.getItem("inputData");
+    inputValue = localStorage.getItem("inputData");
+    buildUi();
+
 }
 
 document.addEventListener('keydown', function (event) {
@@ -87,3 +90,4 @@ listParent.addEventListener('click', editItem);
 //     listParent.innerHTML = localStorage.getItem("data");
 // }
 // showTask();
+getLocal();
