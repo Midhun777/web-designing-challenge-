@@ -10,7 +10,7 @@ function addItem() {
 
         //Add Item
         let inputValue = inputText.value;
-        itemsArray.push(inputText.value);
+        itemsArray.push(inputText.zzvalue);
         console.log(itemsArray);
         let li = document.createElement("li");
 
