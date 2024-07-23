@@ -61,12 +61,13 @@ function editItem(event) {
 }
 
 function setLocal() {
-    localStorage.setItem("inputData", itemsArray);
+    localStorage.setItem("inputData", JSON.stringify(itemsArray));
 }
 
 function getLocal() {
     if (localStorage.getItem("inputData")) {
-        inputValue = localStorage.getItem("inputData");
+        inputValue = JSON.parse(localStorage.getItem("inputData"));
+        itemsArray = JSON.parse(localStorage.getItem("inputData"));
         buildUi();
     }
 }
