@@ -2,17 +2,20 @@
 
 using namespace std;
 
-//chatGPT
+// chatGPT
 
-void insertElement(int arr[], int &size, int element, int position) {
+void insertElement(int arr[], int &size, int element, int position)
+{
     // Check if the position is valid
-    if (position < 0 || position > size) {
+    if (position < 0 || position > size)
+    {
         cout << "Invalid position!" << endl;
         return;
     }
 
     // Shift elements to the right to make space for the new element
-    for (int i = size; i > position; i--) {
+    for (int i = size; i > position; i--)
+    {
         arr[i] = arr[i - 1];
     }
 
@@ -23,9 +26,10 @@ void insertElement(int arr[], int &size, int element, int position) {
     size++;
 }
 
-int main() {
-    int arr[100];  // Declare an array with a maximum capacity of 100 elements
-    int size;  // Variable to store the current size of the array
+int main()
+{
+    int arr[100]; // Declare an array with a maximum capacity of 100 elements
+    int size;     // Variable to store the current size of the array
 
     // Get the number of elements from the user
     cout << "Enter the number of elements in the array: ";
@@ -33,7 +37,8 @@ int main() {
 
     // Get the elements of the array from the user
     cout << "Enter the elements of the array: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cin >> arr[i];
     }
 
@@ -48,7 +53,8 @@ int main() {
 
     // Display the original array
     cout << "Original array: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cout << arr[i] << " ";
     }
     cout << endl;
@@ -58,11 +64,10 @@ int main() {
 
     // Display the array after insertion
     cout << "Array after insertion: ";
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         cout << arr[i] << " ";
     }
     cout << endl;
-
-
     return 0;
 }
