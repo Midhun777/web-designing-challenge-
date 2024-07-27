@@ -12,6 +12,7 @@ void insertElement(int arr[], int &size, int element, int position)
         cout << "Invalid position!" << endl;
         return;
     }
+    
 
     // Shift elements to the right to make space for the new element
     for (int i = size; i > position; i--)
